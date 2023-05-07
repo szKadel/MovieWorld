@@ -16,11 +16,42 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $result = new \App\Services\ImdbService;
+    $data = $result ->call("/movie/popular",[]);
 
-    $data = $result ->call("/authentication/guest_session/new",[]);
+    $result = [];
 
-    $class = new Movie();
+    foreach ($data["results"] as $movie) {
+        $class = new Movie();
+        $result[] = $class->fill($movie);
+    }
 
+    return view('list',['movie'=> $result]);
+});
 
-    return view('welcome',['movie'=>$class]);
+Route::get('/series', function () {
+    $result = new \App\Services\ImdbService;
+    $data = $result ->call("/tv/popular",[]);
+
+    $result = [];
+
+    foreach ($data["results"] as $movie) {
+        $class = new Movie();
+        $result[] = $class->fill($movie);
+    }
+
+    return view('list',['movie'=> $result]);
+});
+
+Route::get('/persons', function () {
+    $result = new \App\Services\ImdbService;
+    $data = $result ->call("/person/popular",[]);
+
+    $result = [];
+
+    foreach ($data["results"] as $movie) {
+        $class = new Movie();
+        $result[] = $class->fill($movie);
+    }
+
+    return view('list',['movie'=> $result]);
 });
