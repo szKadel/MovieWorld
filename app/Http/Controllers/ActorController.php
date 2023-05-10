@@ -11,9 +11,9 @@ class ActorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(int $id)
     {
-        //
+
     }
 
     /**
@@ -35,9 +35,15 @@ class ActorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Actor $actor)
+    public function show(Actor $actor, int $id)
     {
-        //
+        $result = new \App\Services\ImdbService;
+        $data = $result ->call("/person/$id",[]);
+
+        $class = new \App\Models\Actor();
+        $class->fill($data);
+
+        return view('person',['person'=> $class]);
     }
 
     /**

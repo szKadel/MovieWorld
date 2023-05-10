@@ -9,6 +9,8 @@ class Movie extends Model
 {
     use HasFactory;
 
+    private string $scopeName = "movie";
+
     public $fillable = [
         'id',
         'imdb_id',
@@ -18,7 +20,12 @@ class Movie extends Model
         'original_language',
         'original_title',
         'overview',
-        'poster_path',
+        'poster_path' ,
         'production_companies'
     ];
+
+    public function getScopeName():string
+    {
+        return $this->scopeName;
+    }
 }

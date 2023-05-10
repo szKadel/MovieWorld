@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Movie;
+use App\Models\Serie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,44 +15,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $result = new \App\Services\ImdbService;
-    $data = $result ->call("/movie/popular",[]);
-
-    $result = [];
-
-    foreach ($data["results"] as $movie) {
-        $class = new Movie();
-        $result[] = $class->fill($movie);
-    }
-
-    return view('list',['movie'=> $result]);
-});
-
-Route::get('/series', function () {
+Route::get('/serie', function () {
     $result = new \App\Services\ImdbService;
     $data = $result ->call("/tv/popular",[]);
 
     $result = [];
 
     foreach ($data["results"] as $movie) {
-        $class = new Movie();
+        $class = new Serie();
         $result[] = $class->fill($movie);
     }
 
     return view('list',['movie'=> $result]);
 });
 
-Route::get('/persons', function () {
+Route::get('/person', function () {
     $result = new \App\Services\ImdbService;
     $data = $result ->call("/person/popular",[]);
 
     $result = [];
 
     foreach ($data["results"] as $movie) {
-        $class = new Movie();
+        $class = new \App\Models\Actor();
         $result[] = $class->fill($movie);
     }
 
     return view('list',['movie'=> $result]);
+
 });
+
+Route::get('/',[\App\Http\Controllers\MovieController::class,'index']);
+Route::get('/person/{id}',[\App\Http\Controllers\ActorController::class,'show']);
+Route::get('/movie/{id}',[\App\Http\Controllers\MovieController::class,'show']);
+
+Route::get('/serie/{id}',[\App\Http\Controllers\SerieController::class,'show']);
+

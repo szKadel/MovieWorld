@@ -13,8 +13,17 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $result = \App\Services\ImdbService::call();
-        var_dump($result);
+        $result = new \App\Services\ImdbService;
+        $data = $result ->call("/movie/popular",[]);
+
+        $result = [];
+
+        foreach ($data["results"] as $movie) {
+            $class = new Movie();
+            $result[] = $class->fill($movie);
+        }
+
+        return view('list',['movie'=> $result]);
     }
 
     /**
@@ -36,10 +45,16 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Movie $movie)
+    public function show(Movie $movie, int $id)
     {
-        //
-    }
+        $result = new \App\Services\ImdbService;
+        $data = $result ->call("/movie/$id",[]);
+
+        $class = new Movie();
+        $class->fill($data);
+
+        return view('movie',['movie'=> $class]);
+}
 
     /**
      * Show the form for editing the specified resource.
