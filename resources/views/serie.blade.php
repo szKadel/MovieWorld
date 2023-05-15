@@ -17,5 +17,6 @@
                 <p>Adult Actor: {{$serie->adult? "yes" : "no"}}</p>
             </div>
         </div>
+
     </div>
 @endsection

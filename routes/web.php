@@ -47,6 +47,7 @@ Route::get('/person', function () {
 Route::get('/',[\App\Http\Controllers\MovieController::class,'index']);
 Route::get('/person/{id}',[\App\Http\Controllers\ActorController::class,'show']);
 Route::get('/movie/{id}',[\App\Http\Controllers\MovieController::class,'show']);
+Route::get('/movie/favourite/',[\App\Http\Controllers\FavoriteMovieController::class,'index']);
 
 Route::get('/serie/{id}',[\App\Http\Controllers\SerieController::class,'show']);
 

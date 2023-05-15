@@ -19,8 +19,10 @@ class MovieController extends Controller
         $result = [];
 
         foreach ($data["results"] as $movie) {
+
             $class = new Movie();
             $result[] = $class->fill($movie);
+           // $class->save();
         }
 
         return view('list',['movie'=> $result]);
@@ -51,7 +53,9 @@ class MovieController extends Controller
         $data = $result ->call("/movie/$id",[]);
 
         $class = new Movie();
+
         $class->fill($data);
+
 
         return view('movie',['movie'=> $class]);
 }

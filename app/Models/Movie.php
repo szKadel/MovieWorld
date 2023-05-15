@@ -14,7 +14,6 @@ class Movie extends Model
     public $fillable = [
         'id',
         'imdb_id',
-        'genres',
         'backdrop_path',
         'budget',
         'original_language',
