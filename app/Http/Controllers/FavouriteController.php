@@ -13,7 +13,7 @@ class FavouriteController extends Controller
      */
     public function index()
     {
-        //
+        return csrf_token();
     }
 
     /**

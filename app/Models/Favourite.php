@@ -13,8 +13,9 @@ class Favourite extends Model
         'id',
         'imdb_id',
         'poster_path',
-        'favourtie',
+        'my_rate',
         'watch_list',
+        'favourtie',
         'watched'
     ];
 }

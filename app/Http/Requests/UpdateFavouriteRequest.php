@@ -22,7 +22,6 @@ class UpdateFavouriteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
         ];
     }
 }
