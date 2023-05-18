@@ -10,7 +10,6 @@ class Favourite extends Model
     use HasFactory;
 
     public $fillable = [
-        'id',
         'imdb_id',
         'poster_path',
         'my_rate',

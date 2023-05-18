@@ -21,9 +21,8 @@ class StoreMovieRequest extends FormRequest
      */
     public function rules(): array
     {
-
         return [
-
+            'imdb_id'
         ];
     }
 }

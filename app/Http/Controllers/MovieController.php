@@ -53,8 +53,8 @@ class MovieController extends Controller
         $data = $result ->call("/movie/$id",[]);
 
         $class = new Movie();
-
         $class->fill($data);
+        $class->save();
 
 
         return view('movie',['movie'=> $class]);

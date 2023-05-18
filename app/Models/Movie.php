@@ -9,6 +9,8 @@ class Movie extends Model
 {
     use HasFactory;
 
+    public $table = "movies";
+
     private string $scopeName = "movie";
 
     public $fillable = [

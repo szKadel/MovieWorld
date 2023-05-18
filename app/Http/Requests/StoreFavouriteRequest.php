@@ -23,6 +23,12 @@ class StoreFavouriteRequest extends FormRequest
     {
         return [
             'id' => 'required|int',
+            'imdb_id' => 'required|int',
+            'poster_path' => 'string',
+            'my_rate' => 'float',
+            'watch_list' => 'bool',
+            'favourtie' => 'bool',
+            'watched' => 'bool',
         ];
     }
 }
