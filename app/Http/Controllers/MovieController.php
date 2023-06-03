@@ -54,7 +54,6 @@ class MovieController extends Controller
 
         $class = new Movie();
         $class->fill($data);
-        $class->save();
 
 
         return view('movie',['movie'=> $class]);
