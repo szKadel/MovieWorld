@@ -9,6 +9,8 @@ class Favourite extends Model
 {
     use HasFactory;
 
+    protected $table = "favourite_movie";
+
     public $fillable = [
         'imdb_id',
         'poster_path',
