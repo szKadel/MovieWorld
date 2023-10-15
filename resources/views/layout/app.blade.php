@@ -107,6 +107,7 @@
             <span class="fs-4">Movie World</span>
         </a>
         <hr>
+
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <a href="/" class="nav-link link-dark" aria-current="page">
@@ -136,9 +137,11 @@
         </ul>
         <hr>
         <div class="dropdown">
-
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>Sign out</strong>
+            <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Sign out</button>
+            </form>
 
         </div>
     </div>
