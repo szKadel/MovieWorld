@@ -46,14 +46,6 @@ Route::get('/person', function () {
 
 });
 
-Route::get('/',[\App\Http\Controllers\MovieController::class,'index']);
-Route::get('/person/{id}',[\App\Http\Controllers\ActorController::class,'show']);
-Route::get('/movie/favourite/',[\App\Http\Controllers\FavouriteController::class,'index']);
-Route::get('/movie/{id}',[\App\Http\Controllers\MovieController::class,'show']);
-Route::post('/movie/favourite/',[\App\Http\Controllers\FavouriteController::class,'store']);
-
-Route::get('/serie/{id}',[\App\Http\Controllers\SerieController::class,'show']);
-
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
@@ -62,7 +54,13 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', [HomeController::class, 'index']);
+    Route::get('/',[\App\Http\Controllers\MovieController::class,'index'])-> middleware('auth');
+    Route::get('/person/{id}',[\App\Http\Controllers\ActorController::class,'show']);
+    Route::get('/serie/{id}',[\App\Http\Controllers\SerieController::class,'show']);
+    Route::get('/movie/favourite/',[\App\Http\Controllers\FavouriteController::class,'index']);
+    Route::get('/movie/favourite/add/{id}',[\App\Http\Controllers\FavouriteController::class,'create']);
+    Route::get('/movie/{id}',[\App\Http\Controllers\MovieController::class,'show']);
+    Route::post('/movie/favourite/',[\App\Http\Controllers\FavouriteController::class,'store']);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

@@ -96,10 +96,6 @@ body {
     transition: .3s;
 }
 
-.sidebar nav .nav-item.active {
-    background: #ff328e !important;
-}
-
 .sidebar nav .nav-item:hover {
     background: rgba(255, 255, 255, .1);
 }

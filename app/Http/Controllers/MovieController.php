@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favourite;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use App\Repository\FavouriteRepository;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
+
+    public function __construct(private FavouriteRepository $favouriteRepository)
+    {
+
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -22,10 +31,13 @@ class MovieController extends Controller
 
             $class = new Movie();
             $result[] = $class->fill($movie);
-           // $class->save();
+
+            //$class->saveOrFail();
         }
 
-        return view('list',['movie'=> $result]);
+        $favourite = $this->favouriteRepository->getAll();
+
+        return view('list',['movie'=> $result, 'favourite' => $favourite]);
     }
 
     /**
@@ -33,7 +45,6 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**

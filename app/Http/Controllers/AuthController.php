@@ -39,6 +39,7 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
 
+
         if (Auth::attempt($credetials)) {
             return redirect('/')->with('success', 'Login Success');
         }

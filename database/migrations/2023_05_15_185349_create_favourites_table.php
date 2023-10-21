@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('favourite_movie', function (Blueprint $table) {
             $table->id();
-            $table->integer("imdb_id");
-            $table->string("poster_path");
+            $table->integer("movie_id")->nullable();
             $table->float("my_rate");
             $table->boolean("watch_list");
             $table->boolean("favourtie");

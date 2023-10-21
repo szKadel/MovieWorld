@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table  ->id();
+            $table  ->integer("external_id");
             $table ->integer("imdb_id")->nullable();
-            $table ->integer("budget")->nullable();
+            $table ->string("backdrop_path")->nullable();
             $table ->json("genres")->nullable();
-            $table ->json("production_companies")->nullable();
-            $table ->json("production_countries")->nullable();
-            $table ->json("spoken_languages")->nullable();
+            $table ->integer("budget")->nullable();
             $table ->string("original_language")->nullable();
-            $table ->float("popularity")->nullable();
+            $table ->string("original_title")->nullable();
+            $table ->text("overview")->nullable();
             $table ->string("poster_path")->nullable();
+            $table ->json("production_companies")->nullable();
+            $table ->float("popularity")->nullable();
             $table  ->timestamps();
         });
     }

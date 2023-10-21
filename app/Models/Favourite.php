@@ -12,8 +12,8 @@ class Favourite extends Model
     protected $table = "favourite_movie";
 
     public $fillable = [
-        'imdb_id',
-        'poster_path',
+        'id',
+        'movie_id',
         'my_rate',
         'watch_list',
         'favourtie',
