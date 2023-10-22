@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Slide Navbar</title>
+    <title>Movie World</title>
     <link rel="stylesheet" type="text/css" href="{{asset("css/auth.css")}}">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>

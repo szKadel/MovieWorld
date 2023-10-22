@@ -1,7 +1,7 @@
 <HTML>
 <head>
 
-    <title>CODE</title>
+    <title>Movie World</title>
 
     <!-- BoxIcons v2.1.2 -->
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
