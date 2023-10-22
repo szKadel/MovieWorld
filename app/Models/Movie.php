@@ -14,6 +14,7 @@ class Movie extends Model
     private string $scopeName = "movie";
 
     public $fillable = [
+        'id',
         'external_id',
         'imdb_id',
         'backdrop_path',

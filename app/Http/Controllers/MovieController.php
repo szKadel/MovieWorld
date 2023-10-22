@@ -37,7 +37,7 @@ class MovieController extends Controller
 
         $favourite = $this->favouriteRepository->getAll();
 
-        return view('list',['movie'=> $result, 'favourite' => $favourite]);
+        return view('homepage',['movie'=> $result, 'favourite' => $favourite]);
     }
 
     /**

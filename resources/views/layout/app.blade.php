@@ -33,7 +33,6 @@
 
 
     <!-- Custom styles for this template -->
-
     <link href="{{ asset('css/content.css') }}" rel="stylesheet">
 </head>
 <body>
